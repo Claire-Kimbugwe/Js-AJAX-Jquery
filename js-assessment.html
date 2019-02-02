@@ -39,6 +39,23 @@
 <script>
   "use strict";
   // code here for above-problem
+  const signButton = document.querySelector('#signIn');
+
+  function textForSignIn() {
+
+    let textValue = signButton.innerText;
+
+    if (textValue = 'Log in'){
+      signButton.innerText = 'Log Out' ;
+    }
+    else if (textValue = 'Log Out'){
+      signButton.innerText = 'Log in ';
+    }
+
+    // body...
+  }
+
+  signButton.addEventListener('click', textForSignIn);
 </script>
 
 <div class="hint">
@@ -69,6 +86,15 @@
 <script>
   "use strict";
   // code here for above problem
+  const formAction = document.querySelector('#prevent-form-submission-form');
+
+  function giveAlert(evt){
+    alert('This is my first alert function, hope it poped up in your window.');
+
+    evt.preventDefault();
+  }
+
+  formAction.addEventListener('submit', giveAlert);
 </script>
 
 <div class="hint">
@@ -103,6 +129,24 @@
 <script>
   "use strict";
   // code here for above problem
+  const blueButton = document.querySelector('#blue') ;
+  const redButton = document.querySelector('#red');
+  const classColorChange = document.querySelectorAll('.colorChange');
+
+  function redclick(){
+    classColorChange.style.backgroundColor = 'red';
+    //$('.colorChange').attr('color', 'red');
+
+  }
+
+  redButton.addEventListener('click',redclick);
+
+
+  function blueClick(){
+    colorChange.style.backgroundColor = 'blue';
+  }
+blueButton.addEventListener('click', blueClick)
+
 </script>
 
 <!-- /////////////////////////////////////////////////////////////////////// -->
