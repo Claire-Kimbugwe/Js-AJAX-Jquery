@@ -130,23 +130,23 @@
 <script>
   "use strict";
   // code here for above problem
-  const blueButton = document.querySelector('#blue') ;
-  const redButton = document.querySelector('#red');
-  const classColorChange = document.querySelectorAll('.colorChange');
+  const blueButton = $('#blue') ;
+  const redButton = $('#red');
+  const classColorChange = $('.colorChange');
 
   function redclick(){
-    classColorChange.style.backgroundColor = 'red';
+    classColorChange.css('background-color', 'red');
     //$('.colorChange').attr('color', 'red');
 
   }
 
-  redButton.addEventListener('click',redclick);
+  redButton.on('click',redclick);
 
 
   function blueClick(){
-    colorChange.style.backgroundColor = 'blue';
+    classColorChange.css("background-color", 'blue');
   }
-blueButton.addEventListener('click', blueClick)
+blueButton.on('click', blueClick)
 
 </script>
 
@@ -240,15 +240,24 @@ You may use <b>plain JavaScript</b> and <b>jQuery</b> for this problem. Do not u
   const resultSpan = $("#result");
 
   // call back funtion:
-  function factorial(num) {
-    result = num ? num * factorial(num - 1) : 1;
-    return result;
+  function factorial() {
+    const num = $("#number").val();
+    let tempNum = 1;
+
+    for(let i = num ; i > 0 ; i -= 1){
+
+      tempNum *= i ;
+
+    //const result = num ? num * factorial(num - 1) : 1;
+    //return result;
+    }
+    return tempNum;
 }
 
 // second call back function.
 function giveresults(){
-  const n = factorial(selectedNumber);
-  resultSpan.text('n');
+  const n = factorial();
+  resultSpan.text(n);
 
 }
 //use the function:
@@ -313,7 +322,32 @@ calculateButton.on('click', giveresults);
 </p>
 <script>
   // code here for above problem
-  
+ /* funtion ajaxFunction(){
+    const url = 'https://swapi.co/api/planets/1/'
+    data = $.get(url,(data) =>{
+      climate.text = data['climate'];
+      terrain.text = data['terrain'];
+      population.text = data['population'];
+
+    });
+
+  }
+  */
+const climate = $('#climate');
+const terain = $('#terrain');
+const population = $('#population')
+
+$("#getinfo").on('click', function(){
+  $.get('https://swapi.co/api/planets/1/', function(data){
+    climate.text = data['climate'];
+    terrain.text = data['terrain'];
+    population.text = data['population'];
+
+  });
+})
+
+
+ // $("#getinfo").on('click', ajaxFunction);
 </script>
 
 
