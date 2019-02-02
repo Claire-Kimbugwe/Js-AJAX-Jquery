@@ -5,6 +5,7 @@
   <title>Skills JavaScript</title>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="static/styles.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body class="container">
 
@@ -176,6 +177,14 @@ blueButton.addEventListener('click', blueClick)
 <script>
   "use strict";
   // code here for above problem
+  const myImage = $('#kittenz-rule');
+
+  function changeImg() {
+    myImage.attr('src', 'static/Doggie.jpg');
+    // body...
+  }
+myImage.on('dblclick', changeImg);
+
 </script>
 
 <div class="hint">
@@ -225,6 +234,26 @@ You may use <b>plain JavaScript</b> and <b>jQuery</b> for this problem. Do not u
 <script>
   "use strict";
   // code here for above problem
+  //declare variables to use 
+  const selectedNumber = $("#number").val();
+  const calculateButton =$("#calculate");
+  const resultSpan = $("#result");
+
+  // call back funtion:
+  function factorial(num) {
+    result = num ? num * factorial(num - 1) : 1;
+    return result;
+}
+
+// second call back function.
+function giveresults(){
+  const n = factorial(selectedNumber);
+  resultSpan.text('n');
+
+}
+//use the function:
+calculateButton.on('click', giveresults);
+
 </script>
 
 <!-- /////////////////////////////////////////////////////////////////////// -->
@@ -284,6 +313,7 @@ You may use <b>plain JavaScript</b> and <b>jQuery</b> for this problem. Do not u
 </p>
 <script>
   // code here for above problem
+  
 </script>
 
 
