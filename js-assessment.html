@@ -40,7 +40,10 @@
 <script>
   "use strict";
   // code here for above-problem
+  //assign varriables 
   const signButton = document.querySelector('#signIn');
+
+  //desine the call back function:
 
   function textForSignIn() {
 
@@ -53,7 +56,7 @@
       signButton.innerText = 'Log in ';
     }
 
-    // body...
+    
   }
 
   signButton.addEventListener('click', textForSignIn);
@@ -130,22 +133,33 @@
 <script>
   "use strict";
   // code here for above problem
+
+
+  // define variables 
+
   const blueButton = $('#blue') ;
   const redButton = $('#red');
   const classColorChange = $('.colorChange');
 
+  //write the call back functions
+
+  //red function
   function redclick(){
-    classColorChange.css('background-color', 'red');
-    //$('.colorChange').attr('color', 'red');
+    classColorChange.css('background-color', 'red');  
+  }
+
+//blue functionn
+  function blueClick(){
+    classColorChange.css("background-color", 'blue');
 
   }
+
+// calling the redclick button on click 
 
   redButton.on('click',redclick);
 
 
-  function blueClick(){
-    classColorChange.css("background-color", 'blue');
-  }
+  // calling the blueclick function on click.
 blueButton.on('click', blueClick)
 
 </script>
@@ -177,12 +191,18 @@ blueButton.on('click', blueClick)
 <script>
   "use strict";
   // code here for above problem
+  //assign varriables 
+
   const myImage = $('#kittenz-rule');
+
+  // call back function:
 
   function changeImg() {
     myImage.attr('src', 'static/Doggie.jpg');
     // body...
   }
+
+  //using jquery to call functionn on double click.
 myImage.on('dblclick', changeImg);
 
 </script>
@@ -234,12 +254,14 @@ You may use <b>plain JavaScript</b> and <b>jQuery</b> for this problem. Do not u
 <script>
   "use strict";
   // code here for above problem
+
   //declare variables to use 
   const selectedNumber = $("#number").val();
   const calculateButton =$("#calculate");
   const resultSpan = $("#result");
 
-  // call back funtion:
+  // factorial  funtion:
+
   function factorial() {
     const num = $("#number").val();
     let tempNum = 1;
@@ -248,19 +270,19 @@ You may use <b>plain JavaScript</b> and <b>jQuery</b> for this problem. Do not u
 
       tempNum *= i ;
 
-    //const result = num ? num * factorial(num - 1) : 1;
-    //return result;
+    
     }
     return tempNum;
 }
 
-// second call back function.
+//  call back function.
+
 function giveresults(){
   const n = factorial();
   resultSpan.text(n);
 
 }
-//use the function:
+//use the function on click 
 calculateButton.on('click', giveresults);
 
 </script>
@@ -322,32 +344,29 @@ calculateButton.on('click', giveresults);
 </p>
 <script>
   // code here for above problem
- /* funtion ajaxFunction(){
-    const url = 'https://swapi.co/api/planets/1/'
-    data = $.get(url,(data) =>{
+
+// assign variables 
+const climate = $('#climate');
+const terain = $('#terrain');
+const population = $('#population')
+
+
+
+ function ajaxFunction(){
+    const url = 'https://swapi.co/api/planets/1/';
+    $.get(url,(data) =>{
       climate.text = data['climate'];
       terrain.text = data['terrain'];
       population.text = data['population'];
 
     });
-
   }
-  */
-const climate = $('#climate');
-const terain = $('#terrain');
-const population = $('#population')
-
-$("#getinfo").on('click', function(){
-  $.get('https://swapi.co/api/planets/1/', function(data){
-    climate.text = data['climate'];
-    terrain.text = data['terrain'];
-    population.text = data['population'];
-
-  });
-})
+  
 
 
- // $("#getinfo").on('click', ajaxFunction);
+
+  $("#getinfo").on('click', ajaxFunction);
+
 </script>
 
 
